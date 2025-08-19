@@ -1,0 +1,66 @@
+.business-dashboard {
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ffffff;
+  min-height: 100vh;
+  padding-top: 30%;
+}
+
+.dashboard-title {
+  text-align: center;
+  font-size: 2.2rem;
+  color: #ff6f00;
+  margin-bottom: 40px;
+}
+
+/* Full-width row layout */
+.chart-row {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* Chart Card Styling */
+.chart-card {
+  background-color: #fff3e0;
+  border-left: 6px solid #ff6f00;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  padding: 20px;
+  flex: 1 1 30%; /* each card takes roughly 30% of row */
+  min-width: 350px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chart-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.chart-title {
+  text-align: center;
+  font-size: 1.6rem;
+  color: #e65100;
+  margin-bottom: 15px;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 1200px) {
+  .chart-card {
+    flex: 1 1 45%;
+    min-width: 300px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .chart-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .chart-card {
+    flex: 1 1 90%;
+    min-width: 90%;
+  }
+}

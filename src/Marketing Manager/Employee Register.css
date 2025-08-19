@@ -1,0 +1,96 @@
+/* Center the form on the page */
+body, html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center; /* horizontal center */
+  align-items: center;     /* vertical center */
+  background-color: #ffffff; /* page background */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.employee-register {
+  width: 100%;
+  max-width: 500px;
+  padding: 50px 40px;
+  background: #ffffff; /* white background for page */
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.employee-register:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+}
+
+.employee-register h1 {
+  text-align: center;
+  color: #ff6f00; /* dark orange heading */
+  margin-bottom: 25px;
+  font-size: 2rem;
+}
+
+/* Form Styling */
+.employee-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.employee-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  color: #333;
+  position: relative;
+  overflow: hidden;
+}
+
+.employee-form input {
+  padding: 10px 15px;
+  margin-top: 5px;
+  border: 2px solid #ffb74d;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: 0.3s ease;
+  outline: none;
+}
+
+.employee-form input:focus {
+  border-color: #ff6f00;
+  box-shadow: 0 0 8px rgba(255,111,0,0.5);
+  transform: scale(1.02);
+}
+
+/* Submit Button */
+.employee-form button {
+  padding: 12px;
+  background: linear-gradient(45deg, #ff6f00, #ffa500);
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.3s ease;
+}
+
+.employee-form button:hover {
+  background: linear-gradient(45deg, #ffa500, #ff6f00);
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(255,111,0,0.5);
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+  body, html {
+    align-items: flex-start; /* vertical top for small screens */
+    padding-top: 20px;
+  }
+
+  .employee-register {
+    margin: 0 auto;
+    padding: 20px;
+  }
+}

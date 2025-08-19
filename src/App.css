@@ -1,0 +1,19 @@
+ h1{
+    color: orange;
+ }
+ /* Apply to the whole dashboard */
+body, .dashboard-wrapper, .today-business, .org-tree-wrapper {
+  background-color: #ffffff; /* white background for all pages */
+  color: #333333; /* default text color */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* Cards can still have accent colors */
+.grid-item, .business-card, .activity-section, .announcements {
+  background-color: #fff3e0; /* light orange for cards */
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}

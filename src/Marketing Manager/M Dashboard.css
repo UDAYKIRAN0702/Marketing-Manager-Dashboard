@@ -1,0 +1,115 @@
+/* ===== M Dashboard.css ===== */
+
+/* General Styling */
+.dashboard-wrapper {
+  padding: 50px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ffffff;
+  min-height: 100vh;
+}
+
+.dashboard-wrapper h1 {
+  font-size: 2rem;
+  color: #ff6f00; /* Dark orange heading */
+  margin-bottom: 20px;
+}
+
+/* Flex Layout for Horizontal Row */
+.grid-container {
+  display: flex;
+  flex-wrap: nowrap;       /* single row */
+  gap: 20px;
+  overflow-x: auto;        /* horizontal scroll on small screens */
+  padding-bottom: 10px;
+}
+
+/* Individual Card */
+.grid-item {
+  flex: 0 0 220px;         /* fixed width */
+  background-color: #fff3e0; /* Light orange background */
+  border-left: 6px solid #ff6f00; /* Dark orange accent */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  position: relative;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-sizing: border-box;
+}
+
+.grid-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* Icon and Badge */
+.grid-item .icon {
+  font-size: 2rem;
+  color: #e65100;
+  margin-bottom: 10px;
+}
+
+.grid-item .badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #ff6f00;
+  color: white;
+  font-size: 0.8rem;
+  padding: 5px 8px;
+  border-radius: 8px;
+}
+
+/* Card Text */
+.grid-item h1 {
+  font-size: 1.5rem;
+  color: #e65100;
+  margin-bottom: 10px;
+}
+
+.grid-item p {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Activity Section */
+.activity-section {
+  margin-top: 20px;
+  background-color: #e0f7fa;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.activity-section ul {
+  padding-left: 20px;
+}
+
+.activity-section li {
+  margin-bottom: 8px;
+}
+
+/* Announcements Section */
+.announcements {
+  margin-top: 20px;
+  background-color: #fff3e0;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.announcements p {
+  margin: 5px 0;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .grid-container {
+    flex-direction: column; /* stack cards vertically on small screens */
+    align-items: center;
+  }
+
+  .grid-item {
+    width: 90%;
+  }
+}

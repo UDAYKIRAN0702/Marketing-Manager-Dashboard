@@ -1,0 +1,88 @@
+/* ===== Container ===== */
+.crm-container {
+  padding: 100px 20px 40px; /* ⬅ top padding so it doesn’t hide under header */
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+/* ===== Title ===== */
+.crm-title {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* ===== Search Bar ===== */
+.crm-search {
+  position: relative;
+  max-width: 500px;
+  margin: 0 auto 30px;
+}
+
+.crm-search input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+}
+
+.crm-search input:focus {
+  border-color: #007bff;
+}
+
+/* ===== Search Results ===== */
+.crm-search-results {
+  position: absolute;
+  top: 45px;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  max-height: 200px;
+  overflow-y: auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  z-index: 10;
+}
+
+.crm-search-item {
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.crm-search-item:hover {
+  background-color: #f1f1f1;
+}
+
+.crm-no-results {
+  padding: 10px 15px;
+  color: #777;
+  font-style: italic;
+}
+
+/* ===== Employee Section ===== */
+.crm-employee {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.crm-employee h2 {
+  margin-bottom: 20px;
+  color: #444;
+}
+
+/* ===== Chart Styling ===== */
+.crm-chart {
+  width: 95%;          /* expanded width */
+  height: 420px;       /* bigger chart */
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}

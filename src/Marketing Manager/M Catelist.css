@@ -1,0 +1,99 @@
+/* ==== Org Tree Wrapper ==== */
+.org-tree-wrapper {
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+/* ==== Title ==== */
+.org-tree-wrapper h1 {
+  text-align: center;
+  font-size: 32px;   /* Increased */
+  font-weight: bold;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+/* ==== Tree Node ==== */
+.tree-node {
+  margin-left: 20px;
+}
+
+.node-row {
+  display: flex;
+  align-items: center;
+  margin: 12px 0;
+}
+
+/* ==== Toggle Button ==== */
+.toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 22px;   /* Increased */
+  margin-right: 10px;
+  color: #ff6600;
+  transition: transform 0.2s;
+}
+
+.toggle-btn:hover {
+  transform: scale(1.2);
+}
+
+/* ==== Spacer for no-children ==== */
+.spacer {
+  display: inline-block;
+  width: 26px; /* match button space */
+}
+
+/* ==== Node Icon ==== */
+.node-icon {
+  font-size: 26px;   /* Increased */
+  color: #0077cc;
+  margin-right: 12px;
+}
+
+/* ==== Node Label ==== */
+.node-label {
+  font-size: 20px;   /* Increased */
+  color: #444;
+}
+
+.node-label strong {
+  color: #222;
+}
+
+.node-name {
+  font-size: 18px;   /* Slightly smaller */
+  color: #666;
+  margin-left: 6px;
+}
+
+/* ==== Children ==== */
+.children {
+  margin-left: 40px;  /* Indent children more */
+  border-left: 2px solid #eee;
+  padding-left: 20px;
+}
+
+/* ==== Contact Details ==== */
+.company-contact {
+  margin-top: 30px;
+  padding: 20px;
+  background: #f9fafc;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.company-contact h3 {
+  font-size: 22px;   /* Bigger */
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.company-contact p {
+  font-size: 18px;   /* Bigger */
+  color: #555;
+}

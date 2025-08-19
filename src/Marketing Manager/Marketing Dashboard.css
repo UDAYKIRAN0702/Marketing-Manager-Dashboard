@@ -1,0 +1,254 @@
+/* ===== Dashboard Container ===== */
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+/* ===== Header ===== */
+.dashboard-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: linear-gradient(to right, #cc5201, #6b0000); 
+  color: #fff;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 0 10px;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.dashboard-header.scrolled {
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.dashboard-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+.dashboard-header-wrapper {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* push to right */
+}
+
+/* ===== Profile Section ===== */
+.profile-section {
+  position: relative;
+}
+
+.profile-btn {
+
+  padding-left: 10%;
+  padding: 12px 38px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
+
+.profile-icon {
+  font-size: 20px;
+  margin-right: 6px;
+}
+
+.profile-text {
+  font-size: 14px;
+}
+
+/* ===== Dropdown ===== */
+.dropdown-content {
+  position: absolute;
+  right: 0; /* aligned to right edge of button */
+  top: 110%;
+  background: linear-gradient(to right, #ff6600, #8b0000);
+  border: 1px solid #ddd;
+  list-style: none;
+  padding: 8px 0;
+  margin: 0;
+  min-width: 160px;
+  box-shadow: 0 4px 12px #ef7331;
+  border-radius: 6px;
+  z-index: 1001;
+}
+
+.dropdown-content li {
+  padding: 10px 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.3s ease;
+}
+
+.dropdown-content li:hover {
+  background-color: #ffefdb;
+}
+
+.dropdown-content li a {
+  text-decoration: none;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  margin-right: 8px;
+}
+
+/* ===== Body Layout ===== */
+.dashboard-body {
+  display: flex;
+  width: 100%;
+  background-color: #ffffff;
+  margin-top: 60px; /* offset for fixed header */
+}
+
+h2 {
+  font-size: 200%;
+}
+
+/* ===== Sidebar ===== */
+.sidebar {
+  width: 260px;
+  background:linear-gradient(to top,#ff6f00, #ee6903ee); /* dark orange sidebar */
+  min-height: calc(100vh - 60px);
+  padding-top: 20px;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  overflow-y: auto;
+  transition: all 0.3s ease;
+  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.15);
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  margin: 0;
+}
+
+h1 {
+  color: #ff6f00;
+}
+
+.sidebar ul li a,
+.sidebar ul li button {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  padding: 16px 24px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  width: 100%;
+  gap: 15px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-left: 5px solid transparent;
+  border-radius: 0 10px 10px 0;
+}
+
+.sidebar ul li a .icon,
+.sidebar ul li button .icon {
+  font-size: 24px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li button:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.sidebar ul li a:hover .icon,
+.sidebar ul li button:hover .icon {
+  transform: scale(1.2);
+  color: #fff200; /* golden hover icon */
+}
+
+.sidebar ul li a.active {
+  background: rgba(255, 255, 255, 0.25);
+  border-left: 5px solid #fff200;
+}
+
+.sidebar ul li a.active .icon {
+  color: #fff200;
+  transform: scale(1.3);
+}
+
+/* Scrollbar Styling */
+.sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+/* ===== Main Content ===== */
+.main-content {
+  margin-left: 260px; /* same as sidebar width */
+  padding: 30px;
+  width: calc(100% - 260px);
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+/* ===== Logout Button ===== */
+.logout-btn {
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: none;
+  color: #fff;
+  padding: 16px 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+}
+
+.logout-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ===== Responsive ===== */
+
+
+
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: relative;
+    width: 100%;
+    min-height: auto;
+    top: 0;
+  }
+  .main-content {
+    margin-left: 0;
+    width: 120%;
+    padding-top: 120%;
+  }
+}

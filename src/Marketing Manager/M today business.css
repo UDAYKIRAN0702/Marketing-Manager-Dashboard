@@ -1,0 +1,56 @@
+/* ===== M Today Business.css ===== */
+
+/* General Styling */
+.today-business {
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ffffff;
+  min-height: 100vh;
+}
+
+.today-business h1 {
+  font-size: 2rem;
+  color: #ff6f00; /* Dark orange heading */
+  margin-bottom: 20px;
+}
+
+/* Grid Layout */
+.business-grid {
+  display: flex;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* Individual Business Card */
+.business-card {
+  background-color: #fff3e0; /* Light orange background */
+  border-left: 6px solid #ff6f00; /* Dark orange accent */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.business-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.business-card h2 {
+  margin-bottom: 10px;
+  color: #e65100;
+  font-size: 1.5rem;
+}
+
+.business-card p {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  .business-grid {
+    grid-template-columns: 1fr;
+  }
+}
