@@ -111,8 +111,9 @@
 .dashboard-body {
   display: flex;
   width: 100%;
+
   background-color: #ffffff;
-  margin-top: 60px; /* offset for fixed header */
+  margin-top: 90px; /* offset for fixed header */
 }
 
 h2 {

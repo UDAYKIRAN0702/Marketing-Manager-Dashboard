@@ -1,109 +1,175 @@
+/* Container */
 .crm-container {
+  max-width: 1100px;
+  margin: auto;
   padding: 20px;
   font-family: Arial, sans-serif;
-  max-width: 900px;
-  margin: auto;
 }
 
+.crm-title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Search & Add Button */
 .crm-actions {
   display: flex;
   justify-content: space-between;
   margin-bottom: 15px;
 }
 
-.search-input {
+.crm-actions input {
+  width: 70%;
   padding: 8px;
-  width: 250px;
-  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
 }
 
-.add-client-button {
-  padding: 8px 14px;
-  background-color: #28a745;
+.crm-add-btn {
+  padding: 8px 15px;
+  background: #007bff;
   color: white;
   border: none;
-  font-size: 14px;
+  border-radius: 6px;
   cursor: pointer;
-  border-radius: 4px;
 }
 
-.client-table {
-  width: 120%;
+.crm-add-btn:hover {
+  background: #0056b3;
+}
+
+/* Table Styling */
+.crm-table {
+  width: 100%;
   border-collapse: collapse;
+  margin-top: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-.client-table th,
-.client-table td {
-  border: 1px solid #ddd;
+.crm-table th,
+.crm-table td {
   padding: 10px;
   text-align: left;
+  border: 1px solid #ddd;
 }
 
-.edit-btn,
-.delete-btn {
-  padding: 5px 10px;
-  border: none;
+.crm-table th {
+  background: #f4f4f4;
+}
+
+.crm-table tr:hover {
+  background: #f9f9f9;
+}
+
+.color {
+  background: #28a745;
   color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
   cursor: pointer;
-  margin-right: 5px;
-  border-radius: 3px;
-  font-size: 13px;
 }
 
-.edit-btn {
-  background-color: #007bff;
+.color:hover {
+  background: #218838;
 }
 
-.delete-btn {
-  background-color: #dc3545;
-}
-
-.modal-overlay {
+/* Modal Overlay */
+.crm-modal {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.6);
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1000;
 }
 
-.modal {
-  background-color: rgb(255, 255, 255);
+/* Modal Content */
+.crm-modal-content {
+  background: white;
   padding: 20px;
-  width: 300px;
-  border-radius: 6px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  width: 450px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-.modal input {
+.crm-modal-content h2 {
+  margin-bottom: 15px;
+  text-align: center;
+  color: #333;
+}
+
+/* Form Fields */
+.crm-modal-content label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.crm-modal-content input,
+.crm-modal-content select {
   width: 100%;
   padding: 8px;
-  margin-bottom: 12px;
-  font-size: 14px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
 }
 
-.modal-buttons {
+/* Modal Buttons */
+.crm-modal-actions {
+  margin-top: 15px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+  gap: 10px;
 }
 
-.modal-buttons button {
-  padding: 8px 12px;
+.crm-modal-actions button {
+  padding: 8px 15px;
   border: none;
+  border-radius: 6px;
   cursor: pointer;
-  border-radius: 4px;
-  font-size: 14px;
 }
 
-.modal-buttons button:first-child {
-  background-color: #28a745;
+.crm-modal-actions button:first-child {
+  background: #007bff;
   color: white;
 }
 
-.modal-buttons button:last-child {
-  background-color: #6c757d;
+.crm-modal-actions button:first-child:hover {
+  background: #0056b3;
+}
+
+.crm-modal-actions button:last-child {
+  background: #dc3545;
   color: white;
+}
+
+.crm-modal-actions button:last-child:hover {
+  background: #a71d2a;
+}
+
+/* Details Table */
+.crm-details-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.crm-details-table th,
+.crm-details-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.crm-details-table th {
+  background: #f8f9fa;
+  width: 35%;
+  text-align: left;
 }

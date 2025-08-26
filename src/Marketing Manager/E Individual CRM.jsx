@@ -9,6 +9,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import { FaSearch } from "react-icons/fa";
 import "./E Individual CRM.css";
 
 const employeeData = {
@@ -38,18 +39,33 @@ function IndividualCRM() {
     name.toLowerCase().includes(search.toLowerCase())
   );
 
+  const handleSearch = () => {
+    if (filteredEmployees.length === 1) {
+      setSelectedEmployee(filteredEmployees[0]);
+      setSearch("");
+    } else {
+      setSelectedEmployee(null);
+    }
+  };
+
   return (
     <div className="crm-container">
       <h1 className="crm-title">Employee CRM Details</h1>
 
       {/* ===== Search Bar ===== */}
       <div className="crm-search">
-        <input
-          type="text"
-          placeholder="Search Eg johnu,srinu,jabi"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
+        <div className="crm-search-input-wrapper">
+          <input
+            type="text"
+            placeholder="Search Eg johnu,srinu,jabi"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <button className="crm-search-button" onClick={handleSearch}>
+            <FaSearch />
+          </button>
+        </div>
+
         {search && (
           <div className="crm-search-results">
             {filteredEmployees.length > 0 ? (
@@ -77,7 +93,7 @@ function IndividualCRM() {
         <div className="crm-employee">
           <h2>{selectedEmployee}'s Performance</h2>
           <div className="crm-chart">
-            <ResponsiveContainer width="100%" height={400}>
+            <ResponsiveContainer width="100%" minWidth={800} height={400}>
               <BarChart data={employeeData[selectedEmployee]}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="month" />

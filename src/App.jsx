@@ -10,11 +10,12 @@ import MBusiness from "./Marketing Manager/M Business Analysis";
 import MTicketRaise from "./Marketing Manager/M Ticket Raise";
 import MOrgTree from "./Marketing Manager/M Catelist";
 import EmployeeRegister from "./Marketing Manager/Employee Register";
-import EmployeeCRM from "./Marketing Manager/Employee CRM";
 import EmployeeLogout from "./Marketing Manager/Employee Logout";
 import Profile from "./profile/profile";
 import EmployeeTrack from "./Marketing Manager/EmployeeTrack";
 import IndividualCRM from "./Marketing Manager/E Individual CRM";
+import CRM from "./Marketing Manager/M crm";
+import EmployeeCRM from "./Marketing Manager/M crm";
 
 
 
@@ -36,8 +37,7 @@ function App() {
          <Route path="/Mcatelist" element={<MOrgTree/>} />
          <Route path="/Memployee-register" element={<EmployeeRegister/>} />
          <Route path="/Memployee-track" element={<EmployeeTrack/>} />
-         <Route path="/Memployee-crm" element={<EmployeeCRM/>} />
-                  <Route path="/profile" element={<Profile/>} />
+        <Route path="/profile" element={<Profile/>} />
          <Route path="/track" element={<EmployeeTrack/>} />
          <Route path="/individual-crm" element={<IndividualCRM/>} />
          <Route path="/Memployee-crm" element={<EmployeeCRM/>} />

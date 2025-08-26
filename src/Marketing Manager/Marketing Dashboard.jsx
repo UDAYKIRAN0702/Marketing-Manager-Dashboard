@@ -54,7 +54,7 @@ export default function MarketingDashboard() {
     <div className="dashboard-container">
       {/* ===== Header ===== */}
    <header className="dashboard-header">
-  <h2 className="header-title">Welcome</h2>
+  <h2 className="header-title">TSAR IT Marketing Manager Portal - Dashboard</h2>
   <div className="dashboard-header-wrapper">
     <div className="profile-section" ref={dropdownRef}>
       <button
