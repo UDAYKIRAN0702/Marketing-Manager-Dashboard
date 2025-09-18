@@ -50,7 +50,7 @@ function IndividualCRM() {
 
   return (
     <div className="crm-container">
-      <h1 className="crm-title">Employee CRM Details</h1>
+      <h1 className="crm-title">Employee CRM Details </h1>
 
       {/* ===== Search Bar ===== */}
       <div className="crm-search">

@@ -1,36 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./M crm.css";
 
-const EmployeeCRM = () => {  const [employees, setEmployees] = useState([
-    {
-      id: 1,
-      name: "John Doe",
-      client: "ABC Corp",
-      projectValue: "$50,000",
-      software: "BILLING",
-      status: "Open",
-      startDate: "2025-01-01T09:00",
-    },
-    {
-      id: 2,
-      name: "Jane Smith",
-      client: "XYZ Ltd",
-      projectValue: "$30,000",
-      software: "HMS",
-      status: "Follow-up",
-      startDate: "2025-02-10T11:30",
-    },
-    {
-      id: 3,
-      name: "Michael Johnson",
-      client: "Tech Solutions",
-      projectValue: "$75,000",
-      software: "CRM",
-      status: "Long",
-      startDate: "2025-03-01T15:00",
-    },
-  ]);
-
+const EmployeeCRM = () => {
+  const [employees, setEmployees] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [showForm, setShowForm] = useState(false);
   const [showDetails, setShowDetails] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
@@ -43,34 +18,78 @@ const EmployeeCRM = () => {  const [employees, setEmployees] = useState([
     startDate: "",
   });
 
+  // API base URL
+  const API_URL = "http://127.0.0.1:8000/api/crm/";
+
+  // Fetch all employees
+  const fetchEmployees = async () => {
+    try {
+      setLoading(true);
+      const response = await axios.get(API_URL);
+      setEmployees(response.data);
+      setError(null);
+    } catch (err) {
+      setError("Failed to fetch employees: " + (err.response?.data?.message || err.message));
+      console.error("Error fetching employees:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Add a new employee
+  const addEmployee = async (employeeData) => {
+    try {
+      const response = await axios.post(API_URL, employeeData);
+      return response.data;
+    } catch (err) {
+      setError("Failed to add employee: " + (err.response?.data?.message || err.message));
+      console.error("Error adding employee:", err);
+      throw err;
+    }
+  };
+
+  // Load employees on component mount
+  useEffect(() => {
+    fetchEmployees();
+  }, []);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setNewClient({ ...newClient, [name]: value });
   };
 
-  const handleAddClient = () => {
-    setEmployees([...employees, { ...newClient, id: employees.length + 1 }]);
-    setNewClient({
-      name: "",
-      client: "",
-      projectValue: "",
-      software: "Billing",
-      status: "Open",
-      startDate: "",
-    });
-    setShowForm(false);
+  const handleAddClient = async () => {
+    try {
+      const addedEmployee = await addEmployee(newClient);
+      setEmployees([...employees, addedEmployee]);
+      setNewClient({
+        name: "",
+        client: "",
+        projectValue: "",
+        software: "Billing",
+        status: "Open",
+        startDate: "",
+      });
+      setShowForm(false);
+    } catch (err) {
+      // Error is already handled in addEmployee function
+    }
   };
 
-  const filteredEmployees = employees.filter(
-    (emp) =>
-      emp.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      emp.client.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      emp.software.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+const query = (searchQuery || '').toLowerCase();
+const filteredEmployees = employees.filter((emp) =>
+  (emp.name?.toLowerCase() || '').includes(query) ||
+  (emp.client?.toLowerCase() || '').includes(query) ||
+  (emp.software?.toLowerCase() || '').includes(query)
+);
+
 
   return (
     <div className="crm-container">
       <h1 className="crm-title">CRM</h1>
+
+      {/* Error message */}
+      {error && <div className="crm-error">{error}</div>}
 
       {/* Search + Add Button */}
       <div className="crm-actions">
@@ -84,6 +103,9 @@ const EmployeeCRM = () => {  const [employees, setEmployees] = useState([
           + Add Client
         </button>
       </div>
+
+      {/* Loading state */}
+      {loading && <div className="crm-loading">Loading employees...</div>}
 
       {/* Add Client Popup Form */}
       {showForm && (
@@ -160,41 +182,48 @@ const EmployeeCRM = () => {  const [employees, setEmployees] = useState([
       )}
 
       {/* Employee Table */}
-      <table className="crm-table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Employee</th>
-            <th>Client</th>
-            <th>Project Value</th>
-            <th>Software</th>
-            <th>Status</th>
-            <th>Start Date & Time</th>
-            <th>Details</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredEmployees.map((emp) => (
-            <tr key={emp.id}>
-              <td>{emp.id}</td>
-              <td>{emp.name}</td>
-              <td>{emp.client}</td>
-              <td>{emp.projectValue}</td>
-              <td>{emp.software}</td>
-              <td>{emp.status}</td>
-              <td>{emp.startDate}</td>
-              <td>
-                <button
-                  onClick={() => setShowDetails(emp)}
-                  className="color"
-                >
-                  View
-                </button>
-              </td>
+      {!loading && (
+        <table className="crm-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Employee</th>
+              <th>Client</th>
+              <th>Project Value</th>
+              <th>Software</th>
+              <th>Status</th>
+              <th>Start Date & Time</th>
+              <th>Details</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {filteredEmployees.map((emp) => (
+              <tr key={emp.id}>
+                <td>{emp.id}</td>
+                <td>{emp.name}</td>
+                <td>{emp.client_name}</td>
+                <td>{emp.project_value}</td>
+                <td>{emp.software}</td>
+                <td>{emp.status}</td>
+                <td>{emp.start_date_time}</td>
+                <td>
+                  <button
+                    onClick={() => setShowDetails(emp)}
+                    className="color"
+                  >
+                    View
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+
+      {/* No results message */}
+      {!loading && filteredEmployees.length === 0 && (
+        <div className="crm-no-results">No employees found.</div>
+      )}
 
       {/* Details Popup in Table Format */}
       {showDetails && (
@@ -244,4 +273,4 @@ const EmployeeCRM = () => {  const [employees, setEmployees] = useState([
   );
 };
 
-export default EmployeeCRM;
+export default EmployeeCRM; 

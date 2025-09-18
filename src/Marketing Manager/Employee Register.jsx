@@ -24,7 +24,7 @@ function EmployeeRegister() {
     
     try {
       // API endpoint - replace with your actual API URL
-      const response = await axios.post('http://127.0.0.1:8000/api/employees/', employee);
+      const response = await axios.post('http://127.0.0.1:8000/api/register/', employee);
       
       setMessage({ 
         text: `Employee ${response.data.name} registered successfully!`, 
